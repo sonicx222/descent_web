@@ -1,0 +1,35 @@
+
+.startmenu {
+    margin-top: 100px;
+    width: 300px;
+    height: 360px;
+    border: 2px;
+    /* border-style: solid;
+    border-color: darkorchid; */
+    /* Center children horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.background {
+    background-image: url(../../assets/img/old_paper_scroll.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    resize:both;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+}
