@@ -21,3 +21,8 @@ export function post(url, requestData, config) {
     const axios = returnAxiosInstance();
     return axios.post(url, requestData, config);
 }
+
+export function del(url, config) {
+    const axios = returnAxiosInstance();
+    return axios.delete(url, config);
+}

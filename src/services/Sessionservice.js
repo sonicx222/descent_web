@@ -6,6 +6,10 @@ export function readSession() {
     return sessionStorage.getItem('sessionData');
 }
 
+export function getSessionToken() {
+    return sessionStorage.getItem('sessionData').token;
+}
+
 export function isSessionActive() {
     let isActive = false;
     if (readSession()) {
