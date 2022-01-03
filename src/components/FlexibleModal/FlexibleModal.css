@@ -1,0 +1,15 @@
+.flexible-modal {
+    margin: 15px;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+  
+  .flexible-modal-header {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    background: #e7e7e7;
+  }
+  
+  .flexible-modal-body {
+    padding: 10px;
+  }

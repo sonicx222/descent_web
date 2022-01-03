@@ -1,10 +1,9 @@
 import React from 'react';
 import { Navigate } from "react-router-dom";
-import Startmenu from '../../components/Startmenu/Startmenu';
 import { isSessionActive } from '../../services/Sessionservice';
-import './start.css';
+import './heroselection.css';
 
-export default class Start extends React.Component {
+export default class HeroSelection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,11 +12,11 @@ export default class Start extends React.Component {
     }
 
     componentDidMount() {
-        if (!isSessionActive) {
-            this.setState({
-                redirect: "/login"
-            });
-        }
+        // if (!isSessionActive) {
+        //     this.setState({
+        //         redirect: "/login"
+        //     });
+        // }
     }
 
     render() {
@@ -27,9 +26,9 @@ export default class Start extends React.Component {
         }
 
         return (
-            <div className="startpage">
-                <div className="startcover">
-                    <Startmenu />
+            <div className="heroselectionpage">
+                <div className="heroselectioncover">
+                    
                 </div>
             </div>
         );

@@ -1,0 +1,106 @@
+.backgroundmap {
+    background-color: black;
+    position: relative;
+    width: 2728px;
+    height: 2728px;
+    z-index: 100;
+    min-height: 600px;
+    padding-top: 64px;
+}
+
+.map {
+    z-index: 100;
+}
+
+.map, .figures, .grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.grid div {
+    margin-top: -64px;
+    width: 64px;
+    height: 64px;
+    color: white;
+    font-weight: bold;
+    line-height: 64px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#A8 {
+    position: absolute;
+    left: 384px;
+    top: 0px;
+    transform: rotate(180deg);
+}
+
+#endA1 {
+    position:absolute; 
+    left: 320px;
+    top: 64px;
+    transform: rotate(90deg);
+    transform-origin:32px 32px;
+}
+
+#endA2 {
+    position:absolute; 
+    left: 320px;
+    top: 576px;
+    transform: rotate(90deg);
+    transform-origin: 32px 32px;
+}
+
+#endA3 {
+    position:absolute; 
+    left: 832px;
+    top: 384px;
+    transform: rotate(270deg);
+    transform-origin: 32px 32px;
+}
+
+#A16 {
+    position:absolute;
+    left: 384px;
+    top: 256px;
+    transform: rotate(0deg);
+}
+
+#A12 {
+    position:absolute;
+    left: 64px;
+    top: 448px;
+    transform: rotate(270deg);
+    transform-origin: 32px 32px;
+}
+
+#exitA {
+    position:absolute;
+    left: 192px;
+    top: 64px;
+    transform: rotate(90deg);
+    transform-origin: 32px 32px;
+}
+
+#A26 {
+    position:absolute;
+    left: 640px;
+    top: 448px;
+    transform: rotate(270deg);
+    transform-origin: 32px 32px;
+}
+
+#A9 {
+    position:absolute;
+    left:384px;
+    top: 512px;
+    transform: rotate(0deg);
+}
+
+#entranceA {
+    position:absolute;
+    left:640px;
+    top: 576px;
+    transform: rotate(180deg);
+}

@@ -2,12 +2,15 @@ import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import axios from 'axios';
 import './App.css';
-import Start from './pages/start/start';
 import Register from "./pages/register/register";
 import Login from "./pages/login/login";
 import Logout from "./components/Logout/Logout";
-import Campaign from "./pages/campaign/campaign";
 import RequireAuth from "./components/RequireAuth/RequireAuth"; 
+import Start from './pages/start/start';
+import NewCampaign from "./pages/newcampaign/newcampaign";
+import CampaignSelection from "./pages/campaignselection/campaignselection";
+import HeroSelection from "./pages/heroselection/heroselection";
+import Testmap from "./pages/testmap/testmap";
 import Test from "./pages/test";
 
 function App() {
@@ -32,14 +35,17 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/newcampaign" element={<NewCampaign />} />
         <Route
-          path="/campaign"
+          path="/campaigns"
           element={
             <RequireAuth>
-              <Campaign />
+              <CampaignSelection />
             </RequireAuth>
           }
         />
+        <Route path="/heroselection" element={<HeroSelection />} />
+        <Route path="/testmap" element={<Testmap />} />
         <Route path="/test" element={<Test />} />
       </Routes>
     </div>
