@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/descent_web/static/css/main.e2152449.chunk.css",
-    "main.js": "/descent_web/static/js/main.f6e73e46.chunk.js",
-    "main.js.map": "/descent_web/static/js/main.f6e73e46.chunk.js.map",
+    "main.css": "/descent_web/static/css/main.54d3ee46.chunk.css",
+    "main.js": "/descent_web/static/js/main.6e95a489.chunk.js",
+    "main.js.map": "/descent_web/static/js/main.6e95a489.chunk.js.map",
     "runtime-main.js": "/descent_web/static/js/runtime-main.7b7e5abb.js",
     "runtime-main.js.map": "/descent_web/static/js/runtime-main.7b7e5abb.js.map",
-    "static/js/2.b802a6da.chunk.js": "/descent_web/static/js/2.b802a6da.chunk.js",
-    "static/js/2.b802a6da.chunk.js.map": "/descent_web/static/js/2.b802a6da.chunk.js.map",
+    "static/js/2.b18e1eb5.chunk.js": "/descent_web/static/js/2.b18e1eb5.chunk.js",
+    "static/js/2.b18e1eb5.chunk.js.map": "/descent_web/static/js/2.b18e1eb5.chunk.js.map",
     "index.html": "/descent_web/index.html",
-    "static/css/main.e2152449.chunk.css.map": "/descent_web/static/css/main.e2152449.chunk.css.map",
-    "static/js/2.b802a6da.chunk.js.LICENSE.txt": "/descent_web/static/js/2.b802a6da.chunk.js.LICENSE.txt",
+    "static/css/main.54d3ee46.chunk.css.map": "/descent_web/static/css/main.54d3ee46.chunk.css.map",
+    "static/js/2.b18e1eb5.chunk.js.LICENSE.txt": "/descent_web/static/js/2.b18e1eb5.chunk.js.LICENSE.txt",
     "static/media/12A.820a5db8.png": "/descent_web/static/media/12A.820a5db8.png",
     "static/media/16A.c2a861b1.png": "/descent_web/static/media/16A.c2a861b1.png",
     "static/media/26A.f635493b.png": "/descent_web/static/media/26A.f635493b.png",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7b7e5abb.js",
-    "static/js/2.b802a6da.chunk.js",
-    "static/css/main.e2152449.chunk.css",
-    "static/js/main.f6e73e46.chunk.js"
+    "static/js/2.b18e1eb5.chunk.js",
+    "static/css/main.54d3ee46.chunk.css",
+    "static/js/main.6e95a489.chunk.js"
   ]
 }
