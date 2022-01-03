@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/descent_web/static/css/main.e2152449.chunk.css",
-    "main.js": "/descent_web/static/js/main.0e744c30.chunk.js",
-    "main.js.map": "/descent_web/static/js/main.0e744c30.chunk.js.map",
+    "main.js": "/descent_web/static/js/main.f6e73e46.chunk.js",
+    "main.js.map": "/descent_web/static/js/main.f6e73e46.chunk.js.map",
     "runtime-main.js": "/descent_web/static/js/runtime-main.7b7e5abb.js",
     "runtime-main.js.map": "/descent_web/static/js/runtime-main.7b7e5abb.js.map",
     "static/js/2.b802a6da.chunk.js": "/descent_web/static/js/2.b802a6da.chunk.js",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.7b7e5abb.js",
     "static/js/2.b802a6da.chunk.js",
     "static/css/main.e2152449.chunk.css",
-    "static/js/main.0e744c30.chunk.js"
+    "static/js/main.f6e73e46.chunk.js"
   ]
 }
