@@ -1,23 +1,29 @@
 {
   "files": {
-    "main.css": "/descent_web/static/css/main.9977aa93.chunk.css",
-    "main.js": "/descent_web/static/js/main.5d8d4684.chunk.js",
-    "main.js.map": "/descent_web/static/js/main.5d8d4684.chunk.js.map",
+    "main.css": "/descent_web/static/css/main.e2152449.chunk.css",
+    "main.js": "/descent_web/static/js/main.73895c4c.chunk.js",
+    "main.js.map": "/descent_web/static/js/main.73895c4c.chunk.js.map",
     "runtime-main.js": "/descent_web/static/js/runtime-main.7b7e5abb.js",
     "runtime-main.js.map": "/descent_web/static/js/runtime-main.7b7e5abb.js.map",
-    "static/js/2.d16599d7.chunk.js": "/descent_web/static/js/2.d16599d7.chunk.js",
-    "static/js/2.d16599d7.chunk.js.map": "/descent_web/static/js/2.d16599d7.chunk.js.map",
+    "static/js/2.f5100a1c.chunk.js": "/descent_web/static/js/2.f5100a1c.chunk.js",
+    "static/js/2.f5100a1c.chunk.js.map": "/descent_web/static/js/2.f5100a1c.chunk.js.map",
     "index.html": "/descent_web/index.html",
-    "static/css/main.9977aa93.chunk.css.map": "/descent_web/static/css/main.9977aa93.chunk.css.map",
-    "static/js/2.d16599d7.chunk.js.LICENSE.txt": "/descent_web/static/js/2.d16599d7.chunk.js.LICENSE.txt",
-    "static/media/login.css": "/descent_web/static/media/cover.a1c09661.jpg",
+    "static/css/main.e2152449.chunk.css.map": "/descent_web/static/css/main.e2152449.chunk.css.map",
+    "static/js/2.f5100a1c.chunk.js.LICENSE.txt": "/descent_web/static/js/2.f5100a1c.chunk.js.LICENSE.txt",
+    "static/media/12A.820a5db8.png": "/descent_web/static/media/12A.820a5db8.png",
+    "static/media/16A.c2a861b1.png": "/descent_web/static/media/16A.c2a861b1.png",
+    "static/media/26A.f635493b.png": "/descent_web/static/media/26A.f635493b.png",
+    "static/media/8A.7b807aa2.png": "/descent_web/static/media/8A.7b807aa2.png",
+    "static/media/9A.ff193c00.png": "/descent_web/static/media/9A.ff193c00.png",
+    "static/media/start.css": "/descent_web/static/media/cover.a1c09661.jpg",
     "static/media/Startmenu.css": "/descent_web/static/media/old_paper_scroll.9222c951.png",
+    "static/media/heroselection.css": "/descent_web/static/media/table_bg.0d5f6358.jpg",
     "static/media/Menulink.css": "/descent_web/static/media/valdemar.453caf50.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.7b7e5abb.js",
-    "static/js/2.d16599d7.chunk.js",
-    "static/css/main.9977aa93.chunk.css",
-    "static/js/main.5d8d4684.chunk.js"
+    "static/js/2.f5100a1c.chunk.js",
+    "static/css/main.e2152449.chunk.css",
+    "static/js/main.73895c4c.chunk.js"
   ]
 }
