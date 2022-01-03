@@ -7,6 +7,7 @@ function Login() {
         <div className="loginpage">
             <div className="logincover">
                 <Loginform />
+                <Link to="/testmap" />
             </div>
         </div>);
 }
