@@ -26,6 +26,7 @@ export default class Loginform extends React.Component {
 
   handleSubmit(event) {
     console.log("Login attempt");
+    let { hide } = Notification.loading("Waiting for Cloud service...", { hideAfter: 0 });
     authenticate(
       {
         email: this.state.email,
@@ -33,6 +34,7 @@ export default class Loginform extends React.Component {
       })
       .then(response => {
         if (response.data) {
+          hide();
           console.log("Login response", response.data);
           storeSession(response.data);
           this.setState({ redirect: "/start" });
@@ -40,6 +42,7 @@ export default class Loginform extends React.Component {
         }
       })
       .catch(error => {
+        hide();
         console.log(error.response.data);
         Notification.error(error.response.data.errorMessage);
       })

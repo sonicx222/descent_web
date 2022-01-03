@@ -26,6 +26,7 @@ export default class Registrationform extends React.Component {
     }
 
     handleSubmit(event) {
+        let { hide } = Notification.loading("Waiting for Cloud service...", { hideAfter: 0 });
         let errors = {};
 
         if (this.formIsValid()) {
@@ -37,11 +38,13 @@ export default class Registrationform extends React.Component {
                     password: this.state.password
                 })
                 .then(response => {
+                    hide();
                     console.log("Registration response", response.data);
                     this.setState({ redirect: "/login" });
                     Notification.success("Registration successful. Please log in.");
                 })
                 .catch(error => {
+                    hide();
                     console.log(error.response.data);
                     errors["register"] = error.response.data.errorMessage;
                     Notification.error(error.response.data.errorMessage);
