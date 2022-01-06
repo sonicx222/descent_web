@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import Notification from 'cogo-toast';
-import './Loginform.css';
+
 import { authenticate } from '../../services/Loginservice';
-import { storeSession } from '../../services/Sessionservice';
+import { storeSession } from '../../services/LocalSessionService';
+
+import './Loginform.css';
 
 export default class Loginform extends React.Component {
   constructor(props) {

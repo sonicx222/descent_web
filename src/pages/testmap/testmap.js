@@ -14,34 +14,34 @@ export default function Testmap() {
         <div className="backgroundmap">
             <div className="map">
                 <div id="A8">
-                    <img src={A8} />
+                    <img alt="" src={A8} />
                 </div>
                 <div id="endA1">
-                    <img src={endA} />
+                    <img alt="" src={endA} />
                 </div>
                 <div id="A16">
-                    <img src={A16} />
+                    <img alt="" src={A16} />
                 </div>
                 <div id="A12">
-                    <img src={A12} />
+                    <img alt="" src={A12} />
                 </div>
                 <div id="exitA">
-                    <img src={exitA} />
+                    <img alt="" src={exitA} />
                 </div>
                 <div id="A26">
-                    <img src={A26} />
+                    <img alt="" src={A26} />
                 </div>
                 <div id="A9">
-                    <img src={A9} />
+                    <img alt="" src={A9} />
                 </div>
                 <div id="endA2">
-                    <img src={endA} />
+                    <img alt="" src={endA} />
                 </div>
                 <div id="entranceA">
-                    <img src={entranceA} />
+                    <img alt="" src={entranceA} />
                 </div>
                 <div id="endA3">
-                    <img src={endA} />
+                    <img alt="" src={endA} />
                 </div>
             </div>
             <div class="grid">

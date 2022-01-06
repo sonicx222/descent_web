@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Navigate } from "react-router-dom";
-import { isSessionActive } from '../../services/Sessionservice';
+import { isSessionActive } from '../../services/LocalSessionService';
+import NewCampaignForm from "../../components/Campaign/NewCampaignForm";
+
 import './newcampaign.css';
 
 export default class NewCampaign extends React.Component {
@@ -26,9 +28,9 @@ export default class NewCampaign extends React.Component {
         }
 
         return (
-            <div className="newcampaignpage">
-                <div className="newcampaigncover">
-                    
+            <div className="newcampaigncover">
+                <div className="vertical-align ">
+                    <NewCampaignForm />
                 </div>
             </div>
         );

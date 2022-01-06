@@ -1,0 +1,39 @@
+#heroselection-region {
+    position: relative;
+    max-height: 16.5em;
+    /* top: 20em;
+    left: 20em; */
+    padding: 0.5rem;
+    border: 0.2rem solid #1010109c;
+    border-radius: 8px;
+    margin-right: 0;
+    margin-left: 0;
+    color: #212529;
+}
+
+.list-group {
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    border-radius: 0.25rem;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: #ffffff9c;
+    border: 1px solid rgba(0,0,0,.5);
+    font-size: small;
+}
+
+.list-group-item-action:focus, .list-group-item-action:hover {
+    z-index: 1;
+    color: #dbdbdb;
+    text-decoration: none;
+    background-color: #1010109c;
+}

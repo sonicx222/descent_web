@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from 'react-router-dom';
 import Notification from 'cogo-toast';
 import { registerUser } from '../../services/Registrationservice';
+
 import './Registrationform.css';
 
 export default class Registrationform extends React.Component {
@@ -120,6 +121,9 @@ export default class Registrationform extends React.Component {
                     <span className="errortext">{this.state.errors["password"]}</span>
                     <button className="registerbutton" type="submit">Register</button>
                 </form>
+                <Link to={"/start"} >
+                    <div className="label-cancel">Cancel</div>
+                </Link>
             </div>
         );
     }

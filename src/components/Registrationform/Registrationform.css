@@ -20,6 +20,12 @@
     font-size: medium;
 }
 
+.label-cancel {
+    color: white;
+    margin-top: 10px;
+    font-size: small;
+}
+
 .errortext {
     color: red;
     background-color: rgb(0, 0, 0, 0.5);

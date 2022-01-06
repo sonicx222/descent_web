@@ -1,7 +1,8 @@
 import React from 'react';
 import { Navigate } from "react-router-dom";
 import Startmenu from '../../components/Startmenu/Startmenu';
-import { isSessionActive } from '../../services/Sessionservice';
+import { isSessionActive } from '../../services/LocalSessionService';
+
 import './start.css';
 
 export default class Start extends React.Component {
@@ -27,8 +28,13 @@ export default class Start extends React.Component {
         }
 
         return (
-            <div className="startpage">
-                <div className="startcover">
+            // <div className="startpage">
+            //     <div className="startcover">
+            //         <Startmenu />
+            //     </div>
+            // </div>
+            <div className="login-start-cover">
+                <div className="vertical-align ">
                     <Startmenu />
                 </div>
             </div>

@@ -4,8 +4,8 @@ import './register.css';
 
 function Register() {
     return (
-        <div className="registerpage">
-            <div className="registercover">
+        <div className="login-start-cover">
+            <div className="vertical-align ">
                 <Registrationform />
             </div>
         </div>);
