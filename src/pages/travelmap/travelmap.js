@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navigate } from "react-router-dom";
-import { isSessionActive } from '../../services/LocalSessionService';
 import './travelmap.css';
 
 export default class Travelmap extends React.Component {

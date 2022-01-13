@@ -2,8 +2,8 @@ import Axios from "axios";
 
 function returnAxiosInstance() {
     const instance = Axios.create({
-        baseURL: 'https://europe-west3-extended-line-332107.cloudfunctions.net/descent_app',
-        // baseURL: 'http://localhost:8080'
+        // baseURL: 'https://europe-west3-extended-line-332107.cloudfunctions.net/descent_app',
+        baseURL: 'http://localhost:8080'
     });
     // alter defaults after instance has been created
     instance.defaults.headers.post['Content-Type'] = 'application/json';
@@ -12,17 +12,17 @@ function returnAxiosInstance() {
     return instance;
 }
 
-export function get(url) {
+export async function get(url, config) {
     const axios = returnAxiosInstance();
-    return axios.get(url);
+    return await axios.get(url, config);
 }
 
-export function post(url, requestData, config) {
+export async function post(url, requestData, config) {
     const axios = returnAxiosInstance();
-    return axios.post(url, requestData, config);
+    return await axios.post(url, requestData, config);
 }
 
-export function del(url, config) {
+export async function del(url, config) {
     const axios = returnAxiosInstance();
-    return axios.delete(url, config);
+    return await axios.delete(url, config);
 }

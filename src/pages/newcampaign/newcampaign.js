@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Navigate } from "react-router-dom";
-import { isSessionActive } from '../../services/LocalSessionService';
+import { isloggedin } from "../../services/Loginservice";
 import NewCampaignForm from "../../components/Campaign/NewCampaignForm";
 
 import './newcampaign.css';
@@ -14,11 +14,13 @@ export default class NewCampaign extends React.Component {
     }
 
     componentDidMount() {
-        // if (!isSessionActive) {
-        //     this.setState({
-        //         redirect: "/login"
-        //     });
-        // }
+        if (!isloggedin()) {
+            console.log("Session has ended. Please login");
+            Notification.info("Session has ended. Please login");
+            this.setState({
+                redirect: "/logout"
+            });
+        }
     }
 
     render() {

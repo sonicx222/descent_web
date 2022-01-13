@@ -1,5 +1,5 @@
 import { get } from './base';
 
-export function getHeroTemplates() {
-    return get("/heroes");
+export async function getHeroTemplates() {
+    return await get("/heroes");
 }

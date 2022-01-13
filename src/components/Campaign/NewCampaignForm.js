@@ -3,6 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import Notification from 'cogo-toast';
 
 import { newCampaign } from '../../services/Campaignservice';
+import { storeCampaign } from '../../services/LocalSessionService';
 
 import './NewCampaignForm.css';
 
@@ -35,6 +36,7 @@ export default class NewCampaignForm extends React.Component {
         if (response.data) {
           hide();
           console.log("Response ", response.data);
+          storeCampaign(response.data);
           this.setState({ redirect: "/heroselection" });
         }
       })
@@ -58,7 +60,7 @@ export default class NewCampaignForm extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      return <Navigate replace to={this.state.redirect} />
+      return <Navigate replace to={this.state.redirect} test="holla!" />
     }
 
     return (

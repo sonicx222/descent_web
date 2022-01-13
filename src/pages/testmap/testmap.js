@@ -8,6 +8,10 @@ import A12 from './images/map_tiles/12A.png';
 import A26 from './images/map_tiles/26A.png';
 import A9 from './images/map_tiles/9A.png';
 import entranceA from './images/map_tiles/entranceA.png';
+import hero1 from './images/heroes/ashrian.png';
+import hero2 from './images/heroes/syndrael.png';
+import hero3 from './images/heroes/widow_tarha.png';
+import hero4 from './images/heroes/grisban_the_thirsty.png';
 
 export default function Testmap() {
     return (
@@ -42,6 +46,18 @@ export default function Testmap() {
                 </div>
                 <div id="endA3">
                     <img alt="" src={endA} />
+                </div>
+                <div >
+                    <img id="hero1" alt="" src={hero1} />
+                </div>
+                <div >
+                    <img id="hero2" alt="" src={hero2} />
+                </div>
+                <div >
+                    <img id="hero3" alt="" src={hero3} />
+                </div>
+                <div >
+                    <img id="hero4"alt="" src={hero4} />
                 </div>
             </div>
             <div class="grid">

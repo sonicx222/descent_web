@@ -1,11 +1,13 @@
 .backgroundmap {
-    background-color: black;
+    /* background-color: black; */
+    background-image: url(images/map_background.png);
     position: relative;
-    width: 2728px;
-    height: 2728px;
+    width: 896px;
+    height: 896px;
     z-index: 100;
     min-height: 600px;
     padding-top: 64px;
+    transform: perspective(331px) rotateX(6deg);
 }
 
 .map {
@@ -83,6 +85,14 @@
     transform-origin: 32px 32px;
 }
 
+#exitA2 {
+    position:absolute;
+    left: 192px;
+    top: 64px;
+    transform: rotate(90deg);
+    transform-origin: 32px 32px;
+}
+
 #A26 {
     position:absolute;
     left: 640px;
@@ -103,4 +113,36 @@
     left:640px;
     top: 576px;
     transform: rotate(180deg);
+}
+
+#hero1 {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 640px;
+    top: 576px;
+}
+
+#hero2 {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 640px;
+    top: 640px;
+}
+
+#hero3 {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 704px;
+    top: 576px;
+}
+
+#hero4 {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    left: 704px;
+    top: 640px;
 }

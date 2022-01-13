@@ -8,6 +8,11 @@
 }
 
 @font-face {
+    font-family: navButton;
+    src: url(../../assets/fonts/valdemar.ttf);
+}
+
+@font-face {
     font-family: descentSymbols;
     src: url(../../assets/fonts/DescentSymbols.ttf);
 }
@@ -23,9 +28,20 @@
     background-size: cover;
     /* background-color: #23e944; */
 }
-.col {
-    /* background-color: #bbeffd;
-    border: 1px solid #61dafb; */
+
+/* .col {
+    background-color: #bbeffd;
+    border: 1px solid #61dafb;
+} */
+
+#flex-column {
+    display: flex;
+    margin: 1rem;
+}
+
+#margin-box {
+    margin: 1rem;
+    display: flex;
 }
 
 .list-group {
@@ -55,7 +71,29 @@
     background-color: #1010109c;
 }
 
-#heroselection-region {
+.list-group-item.active {
+    z-index: 2;
+    color: #dbdbdb;
+    text-decoration: none;
+    background-color: #1010109c;
+    border-color: #dbdbdb;
+}
+
+#label {
+    width: auto;
+    /* padding: 0.5rem;
+    border: 0.2rem solid #1010109c;
+    border-radius: 8px; */
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    color: #dbdbdb;
+    text-decoration: none;
+    background-color: #1010109c;
+}
+
+#border-region {
     height: fit-content;
     width: fit-content;
     padding: 0.5rem;
@@ -65,13 +103,57 @@
     margin-left: 0;
     color: #212529;
 }
+
+.selectioncards {
+    display:flex;
+}
+
+.card {
+    align-items: center;
+    max-width: fit-content;
+    padding: 0.5rem;
+    background-color: #ffffff9c;
+    margin: 0.5rem;
+}
+
+div#ready.card-footer {
+    background-color: rgb(26 225 60);
+}
+
+div#not-ready.card-footer{
+    background-color: rgb(231 40 40);
+    color: #212529;
+}
+
+/* .heroselection {
+    width: fit-content;
+    height: fit-content;
+    background-color: blue;
+} */
+
 .hero-preview {
     position: relative;
+}
+
+#token-img {
+    height: 64px;
+    width: 64px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 #hero-image {
     position: absolute;
     top: 67px;
+    height: 280px
+}
+
+#skill-img {
+    height: 280px
+}
+
+#item-img {
+    height: 280px
 }
 
 #hero-archetype {
@@ -256,4 +338,11 @@
 
 #symbol {
     font-family: descentSymbols;   
+}
+
+.navButton {
+    font-size: 20px;
+    font-family: titleFont;
+    background-color: #1010109c;
+    border-color: black;
 }

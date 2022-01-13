@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navigate } from "react-router-dom";
-import { isSessionActive } from '../../services/LocalSessionService';
+
 import './prolog.css';
 
 export default class Prolog extends React.Component {
