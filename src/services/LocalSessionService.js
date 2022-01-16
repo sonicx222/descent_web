@@ -6,6 +6,10 @@ export function storeCampaign(data) {
     sessionStorage.setItem('currentCampaign', JSON.stringify(data));
 }
 
+export function storeActiveQuest(data) {
+    sessionStorage.setItem('activeQuest', JSON.stringify(data));
+}
+
 export function storeCurrentSelection(data) {
     sessionStorage.setItem('currentSelection', JSON.stringify(data));
 }
@@ -16,6 +20,10 @@ export function readSession() {
 
 export function getCampaign() {
     return JSON.parse(sessionStorage.getItem('currentCampaign'));
+}
+
+export function getActiveQuest() {
+    return JSON.parse(sessionStorage.getItem('activeQuest'));
 }
 
 export function getSessionToken() {

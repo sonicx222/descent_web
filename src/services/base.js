@@ -2,7 +2,7 @@ import Axios from "axios";
 
 function returnAxiosInstance() {
     const instance = Axios.create({
-        // baseURL: 'https://europe-west3-extended-line-332107.cloudfunctions.net/descent_app',
+        //baseURL: 'https://europe-west3-extended-line-332107.cloudfunctions.net/descent_app'
         baseURL: 'http://localhost:8080'
     });
     // alter defaults after instance has been created

@@ -10,6 +10,16 @@ export async function newCampaign(requestData) {
     return await post("/campaigns", requestData, {headers: {'Authentication': 'Bearer ' + authToken}});
 }
 
+export async function startCampaign(requestData) {
+    const campaignId = getCampaignId();
+    console.log("Calling: POST /campaigns/" + campaignId + "/start");
+
+    const authToken = getSessionToken();
+    console.log('authToken: ', authToken);
+    
+    return await post("/campaigns/" + campaignId + "/start", requestData, {headers: {'Authentication': 'Bearer ' + authToken}});
+}
+
 export async function getCurrentCampaigns() {
     const authToken = getSessionToken();
     console.log("Calling: GET /campaigns");

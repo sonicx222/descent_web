@@ -4,10 +4,10 @@ import { Container, Row, Col, ListGroup, Image, Card, Button } from 'react-boots
 import Notification from 'cogo-toast';
 
 import { isloggedin } from '../../services/Loginservice';
-import { endSession, getUserId, getUsername, getCampaignId, getOverlordName } from "../../services/LocalSessionService";
+import { endSession, storeCampaign, getUserId, getUsername, getCampaignId, getOverlordName } from "../../services/LocalSessionService";
 import { isUserOverlord } from '../../services/GameService';
 import { getHeroTemplates } from '../../services/HeroService';
-import { getHeroSelections, createHeroSelection, deleteHeroSelection } from '../../services/Campaignservice';
+import { getHeroSelections, createHeroSelection, deleteHeroSelection, startCampaign } from '../../services/Campaignservice';
 import { getHeroSheetImageByKey, getHeroImageByKey, getHeroTokenImageByKey, getHeroSkillImageByKey, getItemImageByKey } from '../../services/ImageService';
 
 import './heroselection.css';
@@ -22,7 +22,7 @@ export default class HeroSelection extends React.Component {
             listItems: [],
             selectionCards: [],
             selectedHero: {},
-            submittedSelection: {},
+            submittedSelection: null,
             isOverlord: isUserOverlord(),
             canStartCampaign: false,
             isLoading: true,
@@ -85,7 +85,8 @@ export default class HeroSelection extends React.Component {
                         heroselections: response.data,
                         isLoading: false
                     });
-                    this.createHeroCards();
+                    this.createHeroCards(response.data);
+                    this.initButtonState(response.data);
                 }
             })
             .catch(error => {
@@ -127,18 +128,36 @@ export default class HeroSelection extends React.Component {
         }
     }
 
-    createHeroCards() {
+    initButtonState(heroselections) {
+        if (heroselections.length > 0) {
+            let currentUserId = getUserId();
+            for (let i = 0; i < heroselections.length; i++) {
+                // player has already made a previous selection
+                if (heroselections[i].user.userId === currentUserId) {
+                    this.setState({
+                        submittedSelection: heroselections[i]
+                    });
+                }
+            }
+        } else {
+            this.setState({
+                submittedSelection: null
+            });
+        }
+    }
+
+    createHeroCards(heroselections) {
         console.log("Calling createHeroCards()...");
         let items = [];
 
         // create hero cards
-        if (this.state.heroselections.length > 0) {
-            for (let i = 0; i < this.state.heroselections.length; i++) {
+        if (heroselections.length > 0) {
+            for (let i = 0; i < heroselections.length; i++) {
                 items.push(
                     <Card className="text-center" key={i}>
-                        <Card.Header>{this.state.heroselections[i].user.username}</Card.Header>
+                        <Card.Header>{heroselections[i].user.username}</Card.Header>
                         <Card.Img variant="top" id="token-img"
-                            src={getHeroTokenImageByKey("token_" + this.state.heroselections[i].selectedHero.imageName)}
+                            src={getHeroTokenImageByKey("token_" + heroselections[i].selectedHero.imageName)}
                         />
                         {/* <Card.Footer className="text-muted">{this.state.heroselections[i].selectedHero.fullName}</Card.Footer> */}
                         {/* <Card.Footer className="text-muted"
@@ -149,6 +168,10 @@ export default class HeroSelection extends React.Component {
             }
             this.setState({
                 selectionCards: items
+            });
+        } else {
+            this.setState({
+                selectionCards: []
             });
         }
     }
@@ -201,8 +224,44 @@ export default class HeroSelection extends React.Component {
         e.preventDefault();
     }
 
-    handleStartClick() {
+    handleUndoSelectionClick(e) {
+        console.log("Undo selection:", this.state.submittedSelection);
+        let { hide } = Notification.loading("Waiting for Cloud service...", { hideAfter: 0 });
 
+        deleteHeroSelection(this.state.submittedSelection.id)
+            .then((response) => {
+                hide();
+                console.log("Response data", response.data);
+                this.setState({
+                    submittedSelection: null
+                });
+                this.fetchData();
+            })
+            .catch((error) => {
+                hide();
+                this.handleError(error);
+            });
+    }
+
+    handleStartClick() {
+        console.log("handleStartClick");
+        let { hide } = Notification.loading("Waiting for Cloud service...", { hideAfter: 0 });
+
+        startCampaign()
+        .then((response) => {
+            hide();
+            console.log("Response: ", response.status);
+            // update current campaign object in session
+            storeCampaign(response.data);
+            
+            this.setState({
+                redirect: "/prolog"
+            });
+        })
+        .catch((error) => {
+            hide();
+            this.handleError(error);
+        });
     }
 
     handleError(error) {
@@ -250,7 +309,7 @@ export default class HeroSelection extends React.Component {
                                 </div>
                                 <div id="border-region">
                                     <div id="label">
-                                        Current hero selection
+                                        Current hero selections
                                     </div>
                                     <div className="selectioncards">
                                         {this.state.selectionCards}
@@ -356,13 +415,17 @@ export default class HeroSelection extends React.Component {
                                 className="navButton" as="input" type="button" value="Refresh" />
                         </Col>
                         <Col>
-                            {!this.state.isOverlord &&
+                            {!this.state.isOverlord && (this.state.submittedSelection == null) &&
                                 <Button onClick={this.handleSubmitSelectionClick.bind(this)}
                                     className="navButton" as="input" type="button" value="Confirm Selection" />
                             }
+                            {!this.state.isOverlord && (this.state.submittedSelection != null) &&
+                                <Button onClick={this.handleUndoSelectionClick.bind(this)}
+                                    className="navButton" as="input" type="button" value="Undo Selection" />
+                            }
                             {this.state.isOverlord &&
                                 <Button onClick={this.handleStartClick.bind(this)}
-                                    className="navButton" as="input" deactive={!this.state.canStartCampaign} type="button" value="Start Campaign" />
+                                    className="navButton" as="input" type="button" value="Start Campaign" />
                             }
                         </Col>
                     </Row>

@@ -1,23 +1,60 @@
-.prologpage {
-    flex-grow: 1;
-    /* Center children horizontally */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+@font-face {
+    font-family: description;
+    src: url(../../assets/fonts/Garamond_Premier_Pro.ttf);
+}
   
   .prologcover {
-      position:relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background-image: url(../../assets/img/cover_prolog_epilog.jpg);
-      background-color: #000000;
       width: 100%;
-      flex: auto;
-      background-position: center;
+      height: 100% ;
+      max-height: 100% ;
       background-repeat: no-repeat;
-      background-size: contain;
-      background-color: transparent;
-      resize:both;
+      background-position: center;
+      background-size: cover;
+      /* background-color: #23e944; */
   }
+
+.col {
+    /* background-color: #bbeffd; */
+    /* border: 1px solid #61dafb; */
+}
+
+.header {
+    background-color: #ffffff45;
+    min-height: 10%;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: rgb(0 0 0);
+    font-family: navButton;
+    font-size: 5vh;
+}
+
+#vertical-align-text {
+    /* background-color: #c81df3; */
+    min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#text-box {
+    width: 37vw;
+    height: 50vh;
+    font-family: description;
+    font-size: 2.5vh;
+    /* margin-left: 5em; */
+    
+}
+
+.footer{
+    /* background-color: #c81df3; */
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 3em;
+}
