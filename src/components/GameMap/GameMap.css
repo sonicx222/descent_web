@@ -1,0 +1,19 @@
+#map-container {
+    background-image: url(../../assets/img/cover_map.png);
+    background-attachment: fixed;
+    /* width: 896px;
+    height: 896px; */
+    width: 120vw;
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    width:64px;
+    height: 64px;
+    border-radius: 32px;
+    position: absolute;
+    z-index: 200;
+}

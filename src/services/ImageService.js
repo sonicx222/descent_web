@@ -48,6 +48,66 @@ import START_DISCIPLE_SHIELD from '../assets/img/items/healer_disciple_shield.pn
 import START_NECROMANCER_WEAPON from '../assets/img/items/mage_necromancer_staff.png';
 import START_RUNEMASTER_WEAPON from '../assets/img/items/mage_runemaster_rune.png';
 
+// map tile images
+import ENDA from '../assets/img/map_tiles/endA.png';
+import ENDB from '../assets/img/map_tiles/endB.png';
+import ENTRANCEA from '../assets/img/map_tiles/entranceA.png';
+import ENTRANCEB from '../assets/img/map_tiles/entranceB.png';
+import EXITA from '../assets/img/map_tiles/exitA.png';
+import EXITB from '../assets/img/map_tiles/exitB.png';
+import A1 from '../assets/img/map_tiles/1A.png';
+import B1 from '../assets/img/map_tiles/1B.png';
+import A2 from '../assets/img/map_tiles/2A.png';
+import B2 from '../assets/img/map_tiles/2B.png';
+import A3 from '../assets/img/map_tiles/3A.png';
+import B3 from '../assets/img/map_tiles/3B.png';
+import A4 from '../assets/img/map_tiles/4A.png';
+import B4 from '../assets/img/map_tiles/4B.png';
+import A5 from '../assets/img/map_tiles/5A.png';
+import B5 from '../assets/img/map_tiles/5B.png';
+import A6 from '../assets/img/map_tiles/6A.png';
+import B6 from '../assets/img/map_tiles/6B.png';
+import A7 from '../assets/img/map_tiles/7A.png';
+import B7 from '../assets/img/map_tiles/7B.png';
+import A8 from '../assets/img/map_tiles/8A.png';
+import B8 from '../assets/img/map_tiles/8B.png';
+import A9 from '../assets/img/map_tiles/9A.png';
+import B9 from '../assets/img/map_tiles/9B.png';
+import A10 from '../assets/img/map_tiles/10A.png';
+import B10 from '../assets/img/map_tiles/10B.png';
+import A11 from '../assets/img/map_tiles/11A.png';
+import B11 from '../assets/img/map_tiles/11B.png';
+import A12 from '../assets/img/map_tiles/12A.png';
+import B12 from '../assets/img/map_tiles/12B.png';
+import A13 from '../assets/img/map_tiles/13A.png';
+import B13 from '../assets/img/map_tiles/13B.png';
+import A14 from '../assets/img/map_tiles/14A.png';
+import B14 from '../assets/img/map_tiles/14B.png';
+import A15 from '../assets/img/map_tiles/15A.png';
+import B15 from '../assets/img/map_tiles/15B.png';
+import A16 from '../assets/img/map_tiles/16A.png';
+import B16 from '../assets/img/map_tiles/16B.png';
+import A17 from '../assets/img/map_tiles/17A.png';
+import B17 from '../assets/img/map_tiles/17B.png';
+import A18 from '../assets/img/map_tiles/18A.png';
+import B18 from '../assets/img/map_tiles/18B.png';
+import A19 from '../assets/img/map_tiles/19A.png';
+import B19 from '../assets/img/map_tiles/19B.png';
+import A20 from '../assets/img/map_tiles/20A.png';
+import B20 from '../assets/img/map_tiles/20B.png';
+import A21 from '../assets/img/map_tiles/21A.png';
+import B21 from '../assets/img/map_tiles/21B.png';
+import A22 from '../assets/img/map_tiles/22A.png';
+import B22 from '../assets/img/map_tiles/22B.png';
+import A23 from '../assets/img/map_tiles/23A.png';
+import B23 from '../assets/img/map_tiles/23B.png';
+import A24 from '../assets/img/map_tiles/24A.png';
+import B24 from '../assets/img/map_tiles/24B.png';
+import A25 from '../assets/img/map_tiles/25A.png';
+import B25 from '../assets/img/map_tiles/25B.png';
+import A26 from '../assets/img/map_tiles/26A.png';
+import B26 from '../assets/img/map_tiles/26B.png';
+
 
 const heroImages = {
     grisban,
@@ -104,7 +164,66 @@ const itemImages = {
     START_RUNEMASTER_WEAPON
 };
 
-
+const mapTileImages = {
+    ENDA,
+    ENDB,
+    ENTRANCEA,
+    ENTRANCEB,
+    EXITA,
+    EXITB,
+    A1,
+    B1,
+    A2,
+    B2,
+    A3,
+    B3,
+    A4,
+    B4,
+    A5,
+    B5,
+    A6,
+    B6,
+    A7,
+    B7,
+    A8,
+    B8,
+    A9,
+    B9,
+    A10,
+    B10,
+    A11,
+    B11,
+    A12,
+    B12,
+    A13,
+    B13,
+    A14,
+    B14,
+    A15,
+    B15,
+    A16,
+    B16,
+    A17,
+    B17,
+    A18,
+    B18,
+    A19,
+    B19,
+    A20,
+    B20,
+    A21,
+    B21,
+    A22,
+    B22,
+    A23,
+    B23,
+    A24,
+    B24,
+    A25,
+    B25,
+    A26,
+    B26
+};
 
 export function getHeroImageByKey(key) {
     return heroImages[key];
@@ -124,4 +243,8 @@ export function getHeroSkillImageByKey(key) {
 
 export function getItemImageByKey(key) {
     return itemImages[key];
+}
+
+export function getMapTileImageByKey(key) {
+    return mapTileImages[key];
 }

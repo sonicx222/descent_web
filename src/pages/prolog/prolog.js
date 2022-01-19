@@ -67,7 +67,7 @@ export default class Prolog extends React.Component {
 
     handleClick() {
         this.setState({
-            redirect: "/testmap"
+            redirect: "/quest"
         });
     }
 

@@ -10,6 +10,7 @@ import NewCampaign from "./pages/newcampaign/newcampaign";
 import CampaignSelection from "./pages/campaignselection/campaignselection";
 import HeroSelection from "./pages/heroselection/heroselection";
 import Prolog from "./pages/prolog/prolog";
+import Quest from './pages/quest/quest';
 import Travelmap from "./pages/travelmap/travelmap";
 import Testmap from "./pages/testmap/testmap";
 import Test from "./pages/test";
@@ -41,6 +42,7 @@ const NavigationRoutes = () => (
         />
         <Route path="/heroselection" element={<HeroSelection />} />
         <Route path="/prolog" element={<Prolog />} />
+        <Route path="/quest" element={<Quest />} />
         <Route path="/travelmap" element={<Travelmap />} />
         <Route path="/testmap" element={<Testmap />} />
         <Route path="/test" element={<Test />} />

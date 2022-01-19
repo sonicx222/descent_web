@@ -1,0 +1,28 @@
+#quest-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+}
+
+#heroes {
+    width: 20vw;
+    height: 50vh;
+    position: fixed;
+    top: 10em;
+    left: 2em;
+    z-index: 100;
+
+    background-color: aqua;
+}
+
+#monsters{
+    width: 20vw;
+    height: 50vh;
+    position: fixed;
+    top: 10em;
+    right: 2em;
+    z-index: 100;
+
+    background-color: rgb(255, 0, 0);
+}
