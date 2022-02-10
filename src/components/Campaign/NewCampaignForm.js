@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import * as Page from '../../route/redirects';
+
 import Notification from 'cogo-toast';
 
 import { newCampaign } from '../../services/Campaignservice';
@@ -78,7 +80,7 @@ export default class NewCampaignForm extends React.Component {
           <button type="submit" className="newcampaignbutton">Create Campaign</button>
           </div>
         </form>
-        <Link to={"/start"} >
+        <Link to={Page.START} >
           <div className="label-back">Back to Start</div>
         </Link>
       </div>

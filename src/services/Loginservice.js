@@ -3,6 +3,7 @@ import { getSessionToken } from './LocalSessionService';
 
 export function authenticate(requestData) {
     console.log("Calling: POST /sessions/");
+    
     return post("/sessions", requestData);
 }
 
@@ -16,7 +17,7 @@ export async function isloggedin() {
 
     try {
         let result = (await get("/sessions/" + authToken + "/isloggedin")).data;
-        console.log("Result isLoggedIn(): ", result);
+        // console.log("Result isLoggedIn(): ", result);
         return result;
     }
     catch (err) {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import * as Page from '../../route/redirects';
 import Notification from 'cogo-toast';
 import { registerUser } from '../../services/Registrationservice';
 
@@ -41,7 +42,7 @@ export default class Registrationform extends React.Component {
                 .then(response => {
                     hide();
                     console.log("Registration response", response.data);
-                    this.setState({ redirect: "/login" });
+                    this.setState({ redirect: Page.LOGIN });
                     Notification.success("Registration successful. Please log in.");
                 })
                 .catch(error => {
@@ -121,7 +122,7 @@ export default class Registrationform extends React.Component {
                     <span className="errortext">{this.state.errors["password"]}</span>
                     <button className="registerbutton" type="submit">Register</button>
                 </form>
-                <Link to={"/start"} >
+                <Link to={Page.START} >
                     <div className="label-cancel">Cancel</div>
                 </Link>
             </div>

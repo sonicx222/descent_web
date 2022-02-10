@@ -1,8 +1,3 @@
-#map-layout {
-    width: 896px;
-    height: 832px;
-    position:absolute;
-}
 
 #tiles {
     position: absolute;
@@ -10,7 +5,6 @@
     height: 768px;
     left: 64px;
     top: 64px;
-    z-index: 100;
 }
 
 #grid-label {

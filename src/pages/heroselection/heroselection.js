@@ -1,14 +1,17 @@
 import React from 'react';
 import { Navigate } from "react-router-dom";
+import * as Page from '../../route/redirects';
 import { Container, Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
 import Notification from 'cogo-toast';
+import HeroSheet from '../../components/HeroSheet/HeroSheet';
+import MessageBox from '../../components/MessageBox/MessageBox';
 
 import { isloggedin } from '../../services/Loginservice';
 import { endSession, storeCampaign, getUserId, getUsername, getCampaignId, getOverlordName } from "../../services/LocalSessionService";
 import { isUserOverlord } from '../../services/GameService';
 import { getHeroTemplates } from '../../services/HeroService';
 import { getHeroSelections, createHeroSelection, deleteHeroSelection, startCampaign } from '../../services/Campaignservice';
-import { getHeroSheetImageByKey, getHeroImageByKey, getHeroTokenImageByKey, getHeroSkillImageByKey, getItemImageByKey } from '../../services/ImageService';
+import { getHeroTokenImageByKey, getHeroSkillImageByKey, getItemImageByKey } from '../../services/ImageService';
 
 import './heroselection.css';
 
@@ -37,18 +40,16 @@ export default class HeroSelection extends React.Component {
     }
 
     componentDidMount() {
-        console.log("componentDidMount(): checkLoggedIn");
         isloggedin()
             .then((loggedIn) => {
                 if (loggedIn) {
-                    console.log("Authenticated: fetching data");
                     this.fetchData();
                 } else {
                     console.log("Session has ended. Please login");
                     Notification.info("Session has ended. Please login");
                     endSession();
                     this.setState({
-                        redirect: "/login"
+                        redirect: Page.LOGIN
                     });
                 }
             })
@@ -59,11 +60,10 @@ export default class HeroSelection extends React.Component {
         let { hide } = Notification.loading("Waiting for Cloud service...", { hideAfter: 0 });
 
         // load templates to populate options
-        console.log("Load hero templates");
         getHeroTemplates()
             .then(response => {
                 if (response.data) {
-                    console.log("REST response", response.data);
+                    console.log("Response", response.data);
                     this.setState({
                         herotemplates: response.data,
                         isLoading: false
@@ -76,11 +76,10 @@ export default class HeroSelection extends React.Component {
             })
 
         // load current hero selections
-        console.log("Load hero selections");
         getHeroSelections()
             .then(response => {
                 if (response.data) {
-                    console.log("REST response", response.data);
+                    console.log("Response", response.data);
                     this.setState({
                         heroselections: response.data,
                         isLoading: false
@@ -98,7 +97,6 @@ export default class HeroSelection extends React.Component {
     }
 
     createSelectItems() {
-        console.log("Calling createSelectItems()...");
         let items = [];
         let lookup = {};
         if (this.state.herotemplates.length > 0) {
@@ -106,12 +104,14 @@ export default class HeroSelection extends React.Component {
                 lookup[this.state.herotemplates[i].name] = this.state.herotemplates[i];
 
                 items.push(
-                    <ListGroup.Item action onClick={this.handleSelection.bind(this)}
-                        key={this.state.herotemplates[i].name}
-                        eventKey={this.state.herotemplates[i].name}
-                        name={this.state.herotemplates[i].name}>
-                        {this.state.herotemplates[i].fullName}
-                    </ListGroup.Item>
+                    <div id="template-item">
+                        <ListGroup.Item action onClick={this.handleSelection.bind(this)}
+                            key={this.state.herotemplates[i].name}
+                            eventKey={this.state.herotemplates[i].name}
+                            name={this.state.herotemplates[i].name}>
+                            {this.state.herotemplates[i].fullName}
+                        </ListGroup.Item>
+                    </div>
                 );
             }
             this.setState({
@@ -147,7 +147,6 @@ export default class HeroSelection extends React.Component {
     }
 
     createHeroCards(heroselections) {
-        console.log("Calling createHeroCards()...");
         let items = [];
 
         // create hero cards
@@ -159,10 +158,6 @@ export default class HeroSelection extends React.Component {
                         <Card.Img variant="top" id="token-img"
                             src={getHeroTokenImageByKey("token_" + heroselections[i].selectedHero.imageName)}
                         />
-                        {/* <Card.Footer className="text-muted">{this.state.heroselections[i].selectedHero.fullName}</Card.Footer> */}
-                        {/* <Card.Footer className="text-muted"
-                            id={this.state.heroselections[i].ready ? "ready" : "not-ready"}
-                        /> */}
                     </Card>
                 );
             }
@@ -178,7 +173,7 @@ export default class HeroSelection extends React.Component {
 
     handleBackButtonClick() {
         this.setState({
-            redirect: "/start"
+            redirect: Page.START
         });
     }
 
@@ -211,7 +206,7 @@ export default class HeroSelection extends React.Component {
         createHeroSelection(campaignId, requestData)
             .then((response) => {
                 hide();
-                console.log("Response data", response.data);
+                console.log("Response: ", response.data);
                 this.setState({
                     submittedSelection: response.data
                 });
@@ -248,20 +243,20 @@ export default class HeroSelection extends React.Component {
         let { hide } = Notification.loading("Waiting for Cloud service...", { hideAfter: 0 });
 
         startCampaign()
-        .then((response) => {
-            hide();
-            console.log("Response: ", response.status);
-            // update current campaign object in session
-            storeCampaign(response.data);
-            
-            this.setState({
-                redirect: "/prolog"
+            .then((response) => {
+                hide();
+                console.log("Response: ", response.status);
+                // update current campaign object in session
+                storeCampaign(response.data);
+
+                this.setState({
+                    redirect: Page.PROLOG
+                });
+            })
+            .catch((error) => {
+                hide();
+                this.handleError(error);
             });
-        })
-        .catch((error) => {
-            hide();
-            this.handleError(error);
-        });
     }
 
     handleError(error) {
@@ -317,7 +312,14 @@ export default class HeroSelection extends React.Component {
                                 </div>
                             </div>
                         </Col>
-                        <Col>Is Overlord: {this.state.isOverlord ? "Overlord!" : "Hero"}</Col>
+                        <Col>
+                            <div id="border-region">
+                                <div id="label">
+                                    Messages
+                                </div>
+                                <MessageBox />
+                            </div>
+                        </Col>
                     </Row>
                     {!this.state.isOverlord && <Row>
                         <Col>
@@ -327,54 +329,17 @@ export default class HeroSelection extends React.Component {
                                         <div id="label">
                                             Select your hero
                                         </div>
-                                        <ListGroup defaultActiveKey={this.state.herotemplates[0].name}>
-                                            {this.state.listItems}
-                                        </ListGroup>
+                                        <div id="list-group-templates">
+                                            <ListGroup defaultActiveKey={this.state.herotemplates[0].name}>
+                                                {this.state.listItems}
+                                            </ListGroup>
+                                        </div>
                                     </div>
                                 }
-                                <div className="hero-preview">
-                                    <Image src={getHeroSheetImageByKey(this.state.selectedHero.archetype)} />
-
-                                    <div >
-                                        <Image id="hero-image" src={getHeroImageByKey(this.state.selectedHero.imageName)} />
-                                    </div>
-                                    <div id="hero-archetype">
-                                        {this.state.selectedHero.archetype}
-                                    </div>
-                                    <div id="hero-might">
-                                        {this.state.selectedHero.might}
-                                    </div>
-                                    <div id="hero-knowledge">
-                                        {this.state.selectedHero.knowledge}
-                                    </div>
-                                    <div id="hero-willpower">
-                                        {this.state.selectedHero.willpower}
-                                    </div>
-                                    <div id="hero-awareness">
-                                        {this.state.selectedHero.awareness}
-                                    </div>
-                                    <div id="hero-speed">
-                                        {this.state.selectedHero.speed}
-                                    </div>
-                                    <div id="hero-health">
-                                        {this.state.selectedHero.health}
-                                    </div>
-                                    <div id="hero-stamina">
-                                        {this.state.selectedHero.stamina}
-                                    </div>
-                                    <div id="label-ability">
-                                        Hero Ability
-                                    </div>
-                                    <div id="hero-ability">
-                                        {this.state.selectedHero.heroAbilityText}
-                                    </div>
-                                    <div id="label-feat">
-                                        Heroic Feat
-                                    </div>
-                                    <div id="hero-feat">
-                                        {this.state.selectedHero.heroicFeatText}
-                                    </div>
+                                <div id="border-region">
+                                    <HeroSheet template={this.state.selectedHero} />
                                 </div>
+
                             </div>
                         </Col>
                         <Col>

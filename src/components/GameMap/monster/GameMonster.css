@@ -1,0 +1,7 @@
+#game-monster {
+    width:64px;
+    height: 64px;
+    border-radius: 32px;
+    position: absolute;
+    z-index: 200;
+}

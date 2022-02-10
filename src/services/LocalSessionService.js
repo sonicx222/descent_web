@@ -10,6 +10,10 @@ export function storeActiveQuest(data) {
     sessionStorage.setItem('activeQuest', JSON.stringify(data));
 }
 
+export function storeQuestMap(data) {
+    sessionStorage.setItem('activeQuestMap', JSON.stringify(data));
+}
+
 export function storeCurrentSelection(data) {
     sessionStorage.setItem('currentSelection', JSON.stringify(data));
 }
@@ -26,40 +30,38 @@ export function getActiveQuest() {
     return JSON.parse(sessionStorage.getItem('activeQuest'));
 }
 
+export function getQuestMap() {
+    return JSON.parse(sessionStorage.getItem('activeQuestMap'));
+}
+
 export function getSessionToken() {
-    console.log('Calling getSessionToken');
     const data = JSON.parse(sessionStorage.getItem('sessionData'));
     if (data === null) {
         return null;
     }
-    console.log('sessionData', data);
 
     return data.id;
 }
 
 export function getUsername() {
-    console.log('Calling getUsername');
     const data = JSON.parse(sessionStorage.getItem('sessionData'));
 
     return data.username;
 }
 
 export function getUserId() {
-    console.log('Calling getUserId');
     const data = JSON.parse(sessionStorage.getItem('sessionData'));
 
     return data.userId;
 }
 
 export function getOverlordName() {
-    console.log('Calling getOverlordName');
     const data = JSON.parse(sessionStorage.getItem('currentCampaign'));
 
     return data.overlord.playedBy.username;
 }
 
 export function getCampaignId() {
-    console.log('Calling getCampaignId');
     const data = JSON.parse(sessionStorage.getItem('currentCampaign'));
 
     return data.id;

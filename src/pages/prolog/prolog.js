@@ -1,10 +1,12 @@
 import React from 'react';
 import { Navigate } from "react-router-dom";
-import { Container, Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
+import * as Page from '../../route/redirects';
+
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import Notification from 'cogo-toast';
 
 import { isloggedin } from '../../services/Loginservice';
-import { endSession, getCampaign, getActiveQuest, storeActiveQuest } from '../../services/LocalSessionService';
+import { endSession, getCampaign, storeActiveQuest } from '../../services/LocalSessionService';
 import { getQuestById } from '../../services/QuestService';
 
 import './prolog.css';
@@ -23,35 +25,30 @@ export default class Prolog extends React.Component {
         isloggedin()
             .then((loggedIn) => {
                 if (loggedIn) {
-                    console.log("Authenticated: ");
                     this.fetchQuestData();
                 } else {
                     console.log("Session has ended. Please login");
                     Notification.info("Session has ended. Please login");
                     endSession();
                     this.setState({
-                        redirect: "/login"
+                        redirect: Page.LOGIN
                     });
                 }
             })
     }
 
     fetchQuestData() {
-        console.log("fetchQuestData");
         let campaign = getCampaign();
 
         if (campaign === null) {
             Notification.info("Select campaign first");
             this.setState({
-                redirect: "/campaigns"
+                redirect: Page.CAMPAIGNSELECTION
             });
             return
         }
-
-        console.log("campaign.activeQuestId", campaign.activeQuestId);
         getQuestById(campaign.activeQuestId)
             .then((response) => {
-                console.log("Response: ", response.status);
                 console.log("Response data: ", response.data);
                 storeActiveQuest(response.data);
                 this.setState({
@@ -67,7 +64,7 @@ export default class Prolog extends React.Component {
 
     handleClick() {
         this.setState({
-            redirect: "/quest"
+            redirect: Page.QUEST
         });
     }
 
@@ -88,7 +85,7 @@ export default class Prolog extends React.Component {
     render() {
         if (this.state.redirect) {
             console.log("redirect to: ", this.state.redirect);
-            return <Navigate replace to={this.state.redirect} />
+            return <Navigate replace to={this.state.redirect} state={{ quest: this.state.activeQuest }} />
         }
 
         if (this.state.isLoading) {
@@ -119,7 +116,7 @@ export default class Prolog extends React.Component {
                     <Row>
                         <Col>
                             <div className="footer">
-                                <Button onClick={this.handleClick.bind(this)} 
+                                <Button onClick={this.handleClick.bind(this)}
                                     className="navButton" as="input" type="button" value="Continue" />
                             </div>
                         </Col>

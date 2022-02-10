@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link, Navigate } from 'react-router-dom';
+import * as Page from '../../route/redirects';
 import Notification from 'cogo-toast';
 
 import { authenticate } from '../../services/Loginservice';
@@ -39,7 +40,7 @@ export default class Loginform extends React.Component {
           hide();
           console.log("Login response", response.data);
           storeSession(response.data);
-          this.setState({ redirect: "/start" });
+          this.setState({ redirect: Page.START });
           Notification.success("Welcome " + response.data.username + "!");
         }
       })
@@ -82,7 +83,7 @@ export default class Loginform extends React.Component {
           />
           <button type="submit" className="loginbutton">Login</button>
         </form>
-        <Link to={"/register"} >
+        <Link to={Page.REGISTER} >
           <div className="label-register">Register</div>
         </Link>
       </div>

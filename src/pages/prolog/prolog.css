@@ -1,9 +1,10 @@
 @font-face {
     font-family: description;
-    src: url(../../assets/fonts/Garamond_Premier_Pro.ttf);
+    /* src: url(../../assets/fonts/Garamond_Premier_Pro.ttf); */
+    src: url(../../assets/fonts/Gara_Scenario_Desc.ttf);
 }
   
-  .prologcover {
+.prologcover {
       background-image: url(../../assets/img/cover_prolog_epilog.jpg);
       width: 100%;
       height: 100% ;
@@ -12,7 +13,7 @@
       background-position: center;
       background-size: cover;
       /* background-color: #23e944; */
-  }
+}
 
 .col {
     /* background-color: #bbeffd; */

@@ -48,6 +48,12 @@ import START_DISCIPLE_SHIELD from '../assets/img/items/healer_disciple_shield.pn
 import START_NECROMANCER_WEAPON from '../assets/img/items/mage_necromancer_staff.png';
 import START_RUNEMASTER_WEAPON from '../assets/img/items/mage_runemaster_rune.png';
 
+// monster token images
+import token_ettin from '../assets/img/monster/tokens/ettin.png';
+import token_ettin_master from '../assets/img/monster/tokens/ettin_master.png';
+import token_goblin_archer from '../assets/img/monster/tokens/goblin_archer.png';
+import token_goblin_archer_master from '../assets/img/monster/tokens/goblin_archer_master.png';
+
 // map tile images
 import ENDA from '../assets/img/map_tiles/endA.png';
 import ENDB from '../assets/img/map_tiles/endB.png';
@@ -164,6 +170,13 @@ const itemImages = {
     START_RUNEMASTER_WEAPON
 };
 
+const monsterTokenImages = {
+    token_ettin,
+    token_ettin_master,
+    token_goblin_archer,
+    token_goblin_archer_master
+}
+
 const mapTileImages = {
     ENDA,
     ENDB,
@@ -243,6 +256,10 @@ export function getHeroSkillImageByKey(key) {
 
 export function getItemImageByKey(key) {
     return itemImages[key];
+}
+
+export function getMonsterTokenImageByKey(key) {
+    return monsterTokenImages[key];
 }
 
 export function getMapTileImageByKey(key) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate } from "react-router-dom";
+import * as Page from '../../route/redirects';
 import { Container, Row, Col, Table, Button } from 'react-bootstrap';
 import Notification from 'cogo-toast';
 
@@ -24,18 +25,16 @@ export default class CampaignSelection extends React.Component {
     }
 
     componentDidMount() {
-        console.log("checkLoggedIn");
         isloggedin()
             .then((loggedIn) => {
                 if (loggedIn) {
-                    console.log("Authenticated: fetching data");
                     this.fetchData();
                 } else {
                     console.log("Session has ended. Please login");
                     Notification.info("Session has ended. Please login");
                     endSession();
                     this.setState({
-                        redirect: "/login"
+                        redirect: Page.LOGIN
                     });
                 }
             })
@@ -50,7 +49,7 @@ export default class CampaignSelection extends React.Component {
         getCurrentCampaigns()
             .then(response => {
                 if (response.data) {
-                    console.log("Response GET /campaigns:", response.data);
+                    console.log("Response: ", response.data);
                     this.setState({
                         campaigns: response.data,
                         isLoading: false
@@ -74,14 +73,13 @@ export default class CampaignSelection extends React.Component {
     }
 
     createLookup(campaigns) {
-        console.log("Calling createLookup()...", campaigns);
         let lookup = {};
 
         if (campaigns.length > 0) {
             for (let i = 0; i < campaigns.length; i++) {
                 lookup[campaigns[i].name] = campaigns[i];
             }
-            console.log("Campaign Lookup finished:", lookup);
+
             this.setState({
                 campaignLookup: lookup
             });
@@ -89,20 +87,11 @@ export default class CampaignSelection extends React.Component {
     }
 
     createTableContent(campaigns) {
-        console.log("Calling createTableContent()...");
         let rows = [];
-        let players = 0;
 
         if (campaigns.length > 0) {
             for (let i = 0; i < campaigns.length; i++) {
                 let campaign = campaigns[i];
-
-                // prepare player count
-                // if (campaign.phase === 'HERO_SELECTION') {
-                //     players = campaign.numberOfHeroes;
-                // } else if (campaign.heroes != null) {
-                //     players = campaign.heroes.length;
-                // }
 
                 rows.push(
                     <tr key={campaign.name}>
@@ -115,7 +104,8 @@ export default class CampaignSelection extends React.Component {
                         <td><Button onClick={this.handleSelection.bind(this)}
                             name={campaign.name}
                             value="Select"
-                            className="navButton" as="input" type="button" /></td>
+                            className="navButton" as="input" type="button" />
+                        </td>
                     </tr>
                 );
             }
@@ -135,11 +125,11 @@ export default class CampaignSelection extends React.Component {
 
         // trigger redirect
         if (campaign.phase === 'HERO_SELECTION') {
-            newpage = "/heroselection";
+            newpage = Page.HEROSELECTION;
         } else if (campaign.phase === 'ENCOUNTER') {
-            newpage = "/prolog";
+            newpage = Page.PROLOG;
         }
-        
+
         this.setState({
             redirect: newpage
         });
@@ -147,7 +137,7 @@ export default class CampaignSelection extends React.Component {
 
     handleBackButtonClick() {
         this.setState({
-            redirect: "/start"
+            redirect: Page.START
         });
     }
 

@@ -2,7 +2,18 @@
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-color: aqua;
+    background-color: black;
+    /* background-image: url(../../assets/img/cover_wood.png); */
+}
+
+.quest-header {
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-family: navButton;
+    font-size: 2em;
 }
 
 #heroes {
@@ -25,4 +36,24 @@
     z-index: 100;
 
     background-color: rgb(255, 0, 0);
+}
+
+.active-unit {
+	background: white;
+	box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+	animation: pulse-white 2s infinite;
+}
+
+@keyframes pulse-white {
+	0% {	
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+	}
+	
+	70% {
+		box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+	}
+	
+	100% {
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	}
 }

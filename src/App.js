@@ -1,5 +1,5 @@
 import * as React from 'react';
-import NavigationRoutes from './NavigationRoutes';
+import NavigationRoutes from './route/NavigationRoutes';
 
 import './App.css';
 

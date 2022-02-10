@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { Button } from 'react-bootstrap';
 import { getMapTileImageByKey } from '../../../services/ImageService';
 
 import './FirstBloodLayout.css';
 
 const FirstBloodLayout = () => (
-    <div id="map-layout">
+    <div>
         <div id="tiles">
             <div id="A8">
                 <img alt="" src={getMapTileImageByKey("A8")} />
@@ -37,7 +36,6 @@ const FirstBloodLayout = () => (
             <div id="endA3">
                 <img alt="" src={getMapTileImageByKey("ENDA")} />
             </div>
-            <Button style={{left: 640, top: 576}}>Test</Button>
         </div>
         <div id="grid-label">
             <div

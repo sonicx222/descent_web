@@ -1,0 +1,21 @@
+.messages-wrapper {
+    border: 0.1rem solid #1010109c; 
+    height: 8rem;
+    width: 25rem;
+    overflow-y: scroll;
+}
+
+.message-item .list-group-item {
+    position: relative;
+    display: block;
+    color: #212529;
+    text-decoration: none;
+    background-color: #ffffff9c;
+    /* background-color: #d418189c; */
+    font-size: small;
+}
+
+.message-input-wrapper .input {
+    width: 20rem;
+    margin-right: 1rem;
+}

@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Navigate } from "react-router-dom";
+import * as Page from '../../route/redirects';
+
 import Notification from 'cogo-toast';
 import { endSession } from "../../services/LocalSessionService";
 import { logout } from '../../services/Loginservice';
@@ -21,6 +23,6 @@ export default class Logout extends React.Component {
     }
 
     render() {
-        return <Navigate replace to="/login" />
+        return <Navigate replace to={Page.LOGIN} />
     }
 }

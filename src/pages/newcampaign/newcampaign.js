@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Navigate } from "react-router-dom";
+import * as Page from '../../route/redirects';
 import { isloggedin } from "../../services/Loginservice";
 import NewCampaignForm from "../../components/Campaign/NewCampaignForm";
 
@@ -18,7 +19,7 @@ export default class NewCampaign extends React.Component {
             console.log("Session has ended. Please login");
             Notification.info("Session has ended. Please login");
             this.setState({
-                redirect: "/logout"
+                redirect: Page.LOGOUT
             });
         }
     }

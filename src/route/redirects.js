@@ -1,0 +1,11 @@
+export const LOGIN = "/login";
+export const LOGOUT = "/logout";
+export const REGISTER = "/register";
+export const START = "/start";
+export const SETTINGS = "/settings";
+export const NEWCAMPAIGN = "/newcampaign";
+export const CAMPAIGNSELECTION = "/campaigns";
+export const HEROSELECTION = "/heroselection";
+export const PROLOG = "/prolog";
+export const QUEST = "/quest";
+export const TRAVELMAP = "/travelmap";

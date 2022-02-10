@@ -15,6 +15,7 @@ import hero4 from './images/heroes/grisban_the_thirsty.png';
 
 export default function Testmap() {
     return (
+        <div id="test">
         <div className="backgroundmap">
             <div className="map">
                 <div id="A8">
@@ -114,6 +115,7 @@ export default function Testmap() {
                     style={{ position: 'absolute', left: 0, top: 768 }}>11</div>
                 
             </div>
+        </div>
         </div>
     );
 }

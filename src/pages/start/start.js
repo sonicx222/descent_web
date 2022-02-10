@@ -1,7 +1,11 @@
 import React from 'react';
 import { Navigate } from "react-router-dom";
+import * as Page from '../../route/redirects';
+import Notification from 'cogo-toast';
 import Startmenu from '../../components/Startmenu/Startmenu';
-import { isSessionActive } from '../../services/LocalSessionService';
+
+import { isloggedin } from '../../services/Loginservice';
+import { endSession } from '../../services/LocalSessionService';
 
 import './start.css';
 
@@ -14,11 +18,19 @@ export default class Start extends React.Component {
     }
 
     componentDidMount() {
-        if (!isSessionActive) {
-            this.setState({
-                redirect: "/login"
-            });
-        }
+        isloggedin()
+            .then((loggedIn) => {
+                if (loggedIn) {
+                    console.log("Authenticated");
+                } else {
+                    console.log("Session has ended. Please login");
+                    Notification.info("Session has ended. Please login");
+                    endSession();
+                    this.setState({
+                        redirect: Page.LOGIN
+                    });
+                }
+            })
     }
 
     render() {
@@ -28,11 +40,6 @@ export default class Start extends React.Component {
         }
 
         return (
-            // <div className="startpage">
-            //     <div className="startcover">
-            //         <Startmenu />
-            //     </div>
-            // </div>
             <div className="login-start-cover">
                 <div className="vertical-align ">
                     <Startmenu />
